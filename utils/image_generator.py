@@ -10,7 +10,7 @@ import requests
 from pydantic import HttpUrl
 
 # Configurations
-os.environ["REPLICATE_API_TOKEN"] = "r8_JzCyIuVNcwnEosREvjvsc0FrnwqHaDS2Hadk1"
+os.environ["REPLICATE_API_TOKEN"] = "r8_bkR54Q9b2gaBA7iLS5R6PIyFQXVMsjk09gR6K"
 logging.basicConfig(level=logging.INFO)
 
 class ImageGenerater:

@@ -45,22 +45,33 @@ class ImageComposer:
         self.generated_frames = []
 
         for frame in self.frames:
-            # Separate Background
+            background_index = None
             placement_items = []
+
+            # Find the background item and collect other items
             for index, item in enumerate(frame):
                 if item[0] == "Background":
                     background_index = index
-                    continue
-                placement_items.append(item)
-            
+                    break  # Exit loop once background is found
+
+            if background_index is None:
+                raise ValueError("No 'Background' item found in the frame.")
+
             background = frame[background_index]
 
-            possibilties = ImageComposer.compute_positions([item[0] for item in placement_items])
-            identified_locations = ImageComposer.select_diverse_positions(possibilties)
+            # Collect other items excluding the background
+            for index, item in enumerate(frame):
+                if index == background_index:
+                    continue
+                placement_items.append(item)
+
+            possibilities = self.compute_positions([item[0] for item in placement_items])
+            identified_locations = self.select_diverse_positions(possibilities)
             adjusted_positions = self.calculate_adjusted_element_positions(identified_locations)
-            placement_values = [(x[2], *list(y.values())) for x, y in zip(placement_items, adjusted_positions)]
+            placement_values = [(x[1], *y["start_point"], *y["dimensions"]) for x, y in zip(placement_items, adjusted_positions)]
+
             # Construct Frame
-            self.generated_frames.append(self.create_combined_image(background[2], placement_values))
+            self.generated_frames.append(self.create_combined_image(background[1], placement_values))
 
     @staticmethod
     def compute_positions(elements: List[categories]) -> List[AlignmentPositions]:
@@ -159,7 +170,13 @@ class ImageComposer:
             if is_vertical:
                 space_per_element = segment_height / num_elements
             else:
-                space_per_element = segment_width / num_elements
+                space_per_element = segment_widthic = ImageComposer(320, 500, [[('Interactive Elements','../8968a702d64524827de2ccf55c802d6c/landing_1.jpg'),
+                               ('CTA Button','../8968a702d64524827de2ccf55c802d6c/engagement_instruction.png'), 
+                                ('Icon','../8968a702d64524827de2ccf55c802d6c/engagement_animation.png'),
+                                ('Product Image','../8968a702d64524827de2ccf55c802d6c/advertised_item.png'),
+                                ('Text Elements','../8968a702d64524827de2ccf55c802d6c/fr-2-copy-ny.png'), 
+                                #('background_index','../8968a702d64524827de2ccf55c802d6c/landing_2.jpg'),
+]]) / num_elements
             
             for index, _ in enumerate(elements):
                 if is_vertical:
