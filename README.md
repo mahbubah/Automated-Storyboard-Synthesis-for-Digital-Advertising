@@ -15,16 +15,16 @@ This transformative era of advertising recognizes the power of technology to str
 
 ### Image processing using OpenCV
 
-    Locating a smaller template image within a larger image. This function converts the larger image to grayscale for template matching, then uses OpenCV’s matchTemplet function to find the best match for the template within the larger image and draws a rectangle around the detected area
+Locating a smaller template image within a larger image. This function converts the larger image to grayscale for template matching, then uses OpenCV’s matchTemplet function to find the best match for the template within the larger image and draws a rectangle around the detected area
 
-    Analyzing the color composition of an image and extracting prominent colors. This function uses the extcolors library to extract colors from the specified image path, applying a tolerance level and a limit on the number of colors to extract.Then Converts the extracted RGB colors to HEX format and organizes them into a dataFrame and creates a pie chart representing the distribution of the extracted colors and displays the original image alongside it
+Analyzing the color composition of an image and extracting prominent colors. This function uses the extcolors library to extract colors from the specified image path, applying a tolerance level and a limit on the number of colors to extract.Then Converts the extracted RGB colors to HEX format and organizes them into a dataFrame and creates a pie chart representing the distribution of the extracted colors and displays the original image alongside it
 
-    Extracting text from an image using Tesseract OCR (Optical Character Recognition). This function first identifies the background color and replaces non-text colors with a specified background color, thereby enhancing the visibility of the text. Then extracts text from an image using Tesseract OCR
+Extracting text from an image using Tesseract OCR (Optical Character Recognition). This function first identifies the background color and replaces non-text colors with a specified background color, thereby enhancing the visibility of the text. Then extracts text from an image using Tesseract OCR
 
 ### Image Composition
 
-    The purpose of this task is to compose assets into advertisement frames that are not only aesthetically pleasing but also effectively convey the intended message. So the task involves determining the optimal positions for each asset within a frame, adjusting the size of each assets 
-    The function first loads the images using PIL (Python Imaging Library) and converts them to RGBA format (which includes an alpha channel for transparency).Then I determined the maximum width by the widest of the images provided to maintain alignment and the total height is calculated as the sum of the heights of all the images.Then the function effectively combines images one stacked image.
+The purpose of this task is to compose assets into advertisement frames that are not only aesthetically pleasing but also effectively convey the intended message. So the task involves determining the optimal positions for each asset within a frame, adjusting the size of each assets 
+The function first loads the images using PIL (Python Imaging Library) and converts them to RGBA format (which includes an alpha channel for transparency).Then I determined the maximum width by the widest of the images provided to maintain alignment and the total height is calculated as the sum of the heights of all the images.Then the function effectively combines images one stacked image.
 
 ### Building the Storyboard
 
