@@ -4,6 +4,7 @@ import os
 from PIL import Image
 sys.path.append(os.path.abspath(os.path.join('../utils')))
 
+
 from compose import compose_vertical_image  # Assuming compose.py is in the same directory or accessible
 
 class TestComposeVerticalImage(unittest.TestCase):
